@@ -4,7 +4,7 @@ import HomeScreen from './src/HomeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {ListScreen} from './src/ListScreen';
 import {NavigationContainer} from '@react-navigation/native';
-import {CommonRootContextProvider} from './src/CommonRootContext';
+import {ExampleContextProvider} from './src/ExampleContext';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,11 +35,11 @@ function MyTabs() {
 
 function App(): JSX.Element {
   return (
-    <CommonRootContextProvider>
+    <ExampleContextProvider>
       <NavigationContainer>
         <MyTabs />
       </NavigationContainer>
-    </CommonRootContextProvider>
+    </ExampleContextProvider>
   );
 }
 

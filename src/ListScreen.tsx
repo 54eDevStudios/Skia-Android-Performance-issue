@@ -1,10 +1,10 @@
 import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback} from 'react';
 import {FlatList, RefreshControl, StyleSheet, Text, View} from 'react-native';
-import { useCommonRootContext } from './CommonRootContext';
+import { useExampleContext } from './ExampleContext';
 
 export const ListScreen = () => {
-  const {updateNumber} =  useCommonRootContext();
+  const {updateNumber} =  useExampleContext();
 
   const getRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
