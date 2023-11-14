@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   ScrollView,
-  StyleSheet,
-  TouchableOpacity,
   View,
   useWindowDimensions,
 } from 'react-native';
@@ -42,19 +40,5 @@ const HomeScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  headerContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#62d1bc',
-    overflow: 'hidden',
-    alignContent: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default HomeScreen;
