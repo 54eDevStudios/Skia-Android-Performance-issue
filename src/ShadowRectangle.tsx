@@ -121,4 +121,4 @@ const ShadowRectangle = ({
   );
 };
 
-export default React.memo(ShadowRectangle);
+export default ShadowRectangle;
