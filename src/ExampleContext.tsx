@@ -1,19 +1,19 @@
 import React, {useState} from 'react';
 
-export interface CommonRootContextState {
+export interface ExampleContextState {
   updateNumber: (updateNumber: number) => void;
   randomNumber: number;
 }
 
-export const CommonRootContext = React.createContext<CommonRootContextState>(
+export const ExampleContext = React.createContext<ExampleContextState>(
   {},
 );
 
-export function useCommonRootContext() {
-  return React.useContext(CommonRootContext);
+export function useExampleContext() {
+  return React.useContext(ExampleContext);
 }
 
-export const CommonRootContextProvider = ({children}: {children: any}) => {
+export const ExampleContextProvider = ({children}: {children: any}) => {
   const [randomNumber, setRandomNumber] = useState<number>(0);
 
   const updateNumber = (updateNumber: number) => {
@@ -21,12 +21,12 @@ export const CommonRootContextProvider = ({children}: {children: any}) => {
   };
 
   return (
-    <CommonRootContext.Provider
+    <ExampleContext.Provider
       value={{
         updateNumber,
         randomNumber,
       }}>
       {children}
-    </CommonRootContext.Provider>
+    </ExampleContext.Provider>
   );
 };
