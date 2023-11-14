@@ -28,7 +28,7 @@ export const ListScreen = () => {
     }, []),
   );
 
-  const renderLeaderboardItem = useCallback(({item}: {item: {age: number}}) => {
+  const renderItem = useCallback(({item}: {item: {age: number}}) => {
     return (
       <View style={{flex: 1}}>
         <Text>{`Test` + item.age}</Text>
@@ -40,7 +40,7 @@ export const ListScreen = () => {
     <View style={styles.leaderboardContainer}>
       <FlatList
         data={dataArray}
-        renderItem={renderLeaderboardItem}
+        renderItem={renderItem}
         keyExtractor={(item, index) => `${index}`}
         refreshControl={
           <RefreshControl
