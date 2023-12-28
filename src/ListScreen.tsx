@@ -1,63 +1,45 @@
-import {useFocusEffect} from '@react-navigation/native';
-import React, {useCallback} from 'react';
-import {FlatList, RefreshControl, StyleSheet, Text, View} from 'react-native';
-import { useExampleContext } from './ExampleContext';
+import React, { useCallback } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import UsernameDisplay from "./UsernameDisplay";
 
 export const ListScreen = () => {
-  const {updateNumber} =  useExampleContext();
-
-  const getRandomNumber = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
   const dataArray = [
-    {age: getRandomNumber(18, 40)},
-    {age: getRandomNumber(18, 40)},
-    {age: getRandomNumber(18, 40)},
-    {age: getRandomNumber(18, 40)},
+    { username: "avhjjhjhsb" },
+    { username: "xbhjasjhxb" },
+    { username: "xbhasbjh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
+    { username: "xhasbxhasbh" },
   ];
 
-  const onRefresh = async () => {
-    try {
-      updateNumber(getRandomNumber(1, 40));
-    } catch (error) {}
-  };
-
-  useFocusEffect(
-    React.useCallback(() => {
-      onRefresh();
-    }, []),
-  );
-
-  const renderItem = useCallback(({item}: {item: {age: number}}) => {
-    return (
-      <View style={{flex: 1}}>
-        <Text>{`Test` + item.age}</Text>
-      </View>
-    );
+  const renderItem = useCallback(({ item }: { item: { username: string } }) => {
+    return <UsernameDisplay username={item.username} />;
   }, []);
 
   return (
-    <View style={styles.leaderboardContainer}>
+    <View style={styles.container}>
       <FlatList
         data={dataArray}
         renderItem={renderItem}
         keyExtractor={(item, index) => `${index}`}
-        refreshControl={
-          <RefreshControl
-            onRefresh={onRefresh}
-            refreshing={false}
-            tintColor="white"
-          />
-        }
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  leaderboardContainer: {
-    justifyContent: 'center',
+  container: {
+    justifyContent: "center",
     flex: 1,
-    width: '100%',
+    width: "100%",
   },
 });
